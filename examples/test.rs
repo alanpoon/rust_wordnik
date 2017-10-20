@@ -1,7 +1,7 @@
-extern crate urbandict;
+extern crate rust_wordnik;
 
 fn main() {
-    for definition in urbandict::get_definitions("irc").unwrap() {
+    for definition in  rust_wordnik::get_definitions("house","enter you apikey here") {
         println!("{:?}", definition);
     }
 }
