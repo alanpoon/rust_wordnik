@@ -8,8 +8,8 @@ repository = "https://github.com/gkbrk/rust-urbandict"
 authors = ["alan <brightshadowx@gmail.com>"]
 
 [dependencies]
-reqwest = "0.7.3"
+reqwest = "0.9.24"
 serde = "1.0"
 serde_json = "1.0"
 serde_derive = "1.0"
-url = "1.2"
+url = "2.1.0"

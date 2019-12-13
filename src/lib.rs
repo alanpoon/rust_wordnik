@@ -5,17 +5,17 @@ use url::Url;
 use reqwest::StatusCode;
 #[derive(Deserialize, Debug,Clone)]
 pub struct Definition {
-    pub textProns: Vec<String>,
-    pub sourceDictionary: String,
-    pub exampleUses:Vec<String>,
-    pub relatedWords:Vec<String>,
+    pub text_prons: Vec<String>,
+    pub source_dictionary: String,
+    pub example_uses:Vec<String>,
+    pub related_words:Vec<String>,
     pub labels:Vec<String>,
    pub citations:Vec<Cit>,
    pub word:String,
-   pub partOfSpeech:String,
-   pub attributionText:String,
+   pub part_of_speech:String,
+   pub attribution_text:String,
    pub sequence:String,
-   pub seqString:String,
+   pub seq_string:String,
    pub text:String,
    pub score:f32
 }
@@ -38,12 +38,12 @@ pub fn get_definitions(word: &str,api:&str)
        .append_pair("useCanonical","false")
        .append_pair("includeTags","false")
        .append_pair("limit","1");
-let client = reqwest::Client::new().unwrap();
-let mut res = client.get(&url2.into_string()).unwrap()
+let client = reqwest::Client::new();
+let mut res = client.get(&url2.into_string())
     .send().unwrap();
     match res.status() {
-    StatusCode::Ok => println!("success!"),
-    StatusCode::PayloadTooLarge => {
+    StatusCode::OK => println!("success!"),
+    StatusCode::PAYLOAD_TOO_LARGE => {
         println!("Request payload is too large!");
     }
     s => println!("Received response status: {:?}", s),
